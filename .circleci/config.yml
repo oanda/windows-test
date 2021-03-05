@@ -8,3 +8,4 @@ jobs:
     steps:
       - checkout
       - run: Write-Host 'Hello, Windows'
+      - run: git tags
