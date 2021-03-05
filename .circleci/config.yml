@@ -4,8 +4,6 @@ orbs:
 jobs:
   build: windows-test-commit
     executor: win/default
-
     steps:
-    # Commands are run in a Windows virtual machine environment
       - checkout
       - run: Write-Host 'Hello, Windows'
