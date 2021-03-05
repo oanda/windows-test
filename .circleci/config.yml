@@ -8,4 +8,5 @@ jobs:
     steps:
       - checkout
       - run: Write-Host 'Hello, Windows'
-      - run: git tags
+      - run: git status
+      - run: docker build .
