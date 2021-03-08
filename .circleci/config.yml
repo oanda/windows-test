@@ -9,4 +9,4 @@ jobs:
       - checkout
       - run: Write-Host 'Installing GCloud SDK'
       - run: (New-Object Net.WebClient).DownloadFile("https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe", "$env:Temp\GoogleCloudSDKInstaller.exe")
-      
+      - run: $env:Temp\GoogleCloudSDKInstaller.exe /S 
