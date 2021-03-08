@@ -8,10 +8,11 @@ jobs:
     steps:
       - checkout
       - run: Write-Host 'Installing GCloud SDK'
-      - run: (New-Object Net.WebClient).DownloadFile("https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-330.0.0-windows-x86_64-bundled-python.zip", "$env:Temp\google-cloud-sdk-330.0.0-windows-x86_64-bundled-python.zip")
-      - run: Expand-Archive $env:Temp\google-cloud-sdk-330.0.0-windows-x86_64-bundled-python.zip .
-      - run: .\google-cloud-sdk\install.bat -q
-      - run: echo $env:GCLOUD_SERVICE_KEY
+      #- run: (New-Object Net.WebClient).DownloadFile("https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-330.0.0-windows-x86_64-bundled-python.zip", "$env:Temp\google-cloud-sdk-330.0.0-windows-x86_64-bundled-python.zip")
+      #- run: Expand-Archive $env:Temp\google-cloud-sdk-330.0.0-windows-x86_64-bundled-python.zip .
+      #- run: .\google-cloud-sdk\install.bat -q
+      - run: echo $env:GCLOUD_SERVICE_KEY > test.txt
+      - run: cat test.txt
       - run: |
           echo $env:GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
           gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
