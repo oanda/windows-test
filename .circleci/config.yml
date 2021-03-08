@@ -15,3 +15,5 @@ jobs:
           echo $env:GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
           gcloud --quiet config set project $env:GOOGLE_PROJECT_ID
           gcloud --quiet config set compute/zone $env:GOOGLE_COMPUTE_ZONE
+      - run: docker build -t gcr.io/releaseinf/windowstest .
+      - run: docker push gcr.io/releaseinf/windowstest 
