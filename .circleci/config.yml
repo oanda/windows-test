@@ -8,5 +8,5 @@ jobs:
     steps:
       - checkout
       - run: Write-Host 'Installing GCloud SDK'
-      - run: (New-Object Net.WebClient).DownloadFile("https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe", "$env:Temp\GoogleCloudSDKInstaller.exe")
-      - run: $env:Temp\GoogleCloudSDKInstaller.exe /S 
+      - run: (New-Object Net.WebClient).DownloadFile("https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-330.0.0-windows-x86_64-bundled-python.zip", "$env:Temp\Google-cloud-sdk-330.0.0-windows-x86_64-bundled-python.zip")
+      - run: tar -xf $env:Temp\Google-cloud-sdk-330.0.0-windows-x86_64-bundled-python.zip 
