@@ -16,5 +16,9 @@ jobs:
           gcloud --quiet config set project $env:GOOGLE_PROJECT_ID
           gcloud --quiet config set compute/zone $env:GOOGLE_COMPUTE_ZONE
       - run: gcloud auth configure-docker
-      - run: docker build -t gcr.io/releaseinf/windowstest .
-      - run: docker push gcr.io/releaseinf/windowstest 
+      - run:
+          command: |
+            GIT_TAG=`git describe --tags $(git rev-list --tags --max-count=1 2>/dev/null)`
+            docker build -t "gcr.io/releaseinf/windowstest:$GIT_TAG" .
+            docker push "gcr.io/releaseinf/windowstest:$GIT_TAG"
+          shell: bash.exe
